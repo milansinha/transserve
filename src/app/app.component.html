@@ -1,17 +1,29 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav mode="side" opened class="side-nav">
         <div class="sidenav-div">YourCompany</div>
-        <a class="active" href="#"><span class="material-icons-outlined">
+        <a class="active" routerLink="/"><span class="material-icons-outlined">
                 home
             </span>Dashboard</a>
         <a href="#"><span class="material-icons-outlined">
                 description
-                </span>Employees</a>
+            </span>Employees</a>
         <a href="#"><span class="material-icons-outlined">
                 shopping_cart
-                </span>Projects</a>
+            </span>Projects</a>
     </mat-sidenav>
     <mat-sidenav-content>
+        <div class="header-section">
+            <div class="flex">
+                <div class="search-container">
+                    <form>
+                        <input type="text" placeholder="   Search" name="search">
+                    </form>
+                </div>
+                <div class="log-button">
+                    <button type="" routerLink="/employee-log">Log Time</button>
+                </div>
+            </div>
+        </div>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

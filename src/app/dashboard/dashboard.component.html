@@ -1,112 +1,63 @@
-<div class="header-section">
-  <div class="flex">
-    <div class="search-container">
-      <form>
-        <input type="text" placeholder="   Search" name="search">
-      </form>
-    </div>
-    <div class="log-button">
-    <button type="">Log Time</button>
-    </div>
-  </div>
-</div>
-
 <div class="main-content">
   <div class="head">
-  <h1>Dashboard</h1>
-  <div class="dropdown-section">
-    <div style="margin: 5px">
-      <label>Project</label>
-      <br>
-      <select class="dropdown">
-          <option value="volvo">All</option>
-          <option value="saab">Saab</option>
-          <option value="opel">Opel</option>
-          <option value="audi">Audi</option>
+    <h1>Dashboard</h1>
+    <div class="dropdown-section">
+      <div style="margin: 5px">
+        <label>Project</label>
+        <br>
+        <select class="dropdown" #project (change)='projectFilter(project.value)'>
+          <option value="all">All</option>
+          <option *ngFor="let item of projectId" [value]="item">Project {{item}}</option>
         </select>
       </div>
       <div style="margin: 5px">
-          <label>Employee</label>
-          <br>
-          <select class="dropdown">
-              <option value="volvo">All</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>
-  </div>
+        <label>Employee</label>
+        <br>
+        <select class="dropdown" #employee (change)='employeeFilter(employee.value)'>
+          <option value="all">All</option>
+          <option *ngFor="let item of employeeId" [value]="item">Employee {{item}}</option>
+        </select>
+      </div>
+    </div>
   </div>
   <hr>
   <div>
-      <h1>Project Status</h1>
-      <div class="status-section">
-        <div class="status-value">
-          <p>All Project time log : 15hr</p>
-          <hr>
-          <p>All Project estimated time log : 250hr</p>
-          <hr>
-          <p>All Employee time log : 200hr</p>
-        </div>
+    <h1>Project Status</h1>
+    <div class="status-section">
+      <div class="status-value">
+        <p><span *ngIf="filteredProj === 'all'">All Project</span> <span *ngIf="filteredProj !== 'all'">Project
+            {{filteredProj}}</span> time log : {{timelog}}hr</p>
+        <hr>
+        <p><span *ngIf="filteredProj === 'all'">All Project</span> <span *ngIf="filteredProj !== 'all'">Project
+            {{filteredProj}}</span> estimated time : {{estimateTimeLog}}hr</p>
+        <hr>
+        <p><span *ngIf="filteredEmploye === 'all'">All Employee</span> <span *ngIf="filteredEmploye !== 'all'">Employee
+            {{filteredEmploye}}</span> time log : {{employeeTimeLog}}hr</p>
       </div>
+    </div>
   </div>
   <hr>
   <table>
-      <tr>
-        <th>#</th>
-        <th>Project</th>
-        <th>Employee</th>
-        <th>Date</th>
-        <th>Logged Time</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>Project 1</td>
-        <td>Employee 3</td>
-        <td>15/08/2020</td>
-        <td>2 hr</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>Project 1</td>
-          <td>Employee 3</td>
-          <td>15/08/2020</td>
-          <td>2 hr</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>Project 1</td>
-          <td>Employee 3</td>
-          <td>15/08/2020</td>
-          <td>2 hr</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>Project 1</td>
-          <td>Employee 3</td>
-          <td>15/08/2020</td>
-          <td>2 hr</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>Project 1</td>
-          <td>Employee 3</td>
-          <td>15/08/2020</td>
-          <td>2 hr</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>Project 1</td>
-          <td>Employee 3</td>
-          <td>15/08/2020</td>
-          <td>2 hr</td>
-      </tr>
-    </table>
+    <tr>
+      <th>#</th>
+      <th>Project</th>
+      <th>Employee</th>
+      <th>Date</th>
+      <th>Logged Time</th>
+    </tr>
+    <tr *ngFor="let item of AllEmployeeLog; let i = index">
+      <td>{{i+1}}</td>
+      <td>Project {{item.project}}</td>
+      <td>Employee {{item.employee}}</td>
+      <td>{{item.date}}</td>
+      <td>{{item.timelog}} hr</td>
+    </tr>
+  </table>
 </div>
 <div class="main-content">
-<button class="custom-button">Previous</button>
-<button class="custom-button custom-color">1</button>
-<button class="custom-button custom-color active">2</button>
-<button class="custom-button custom-color">3</button>
-<button class="custom-button custom-color">Next</button>
+  <button class="custom-button">Previous</button>
+  <button class="custom-button custom-color">1</button>
+  <button class="custom-button custom-color active">2</button>
+  <button class="custom-button custom-color">3</button>
+  <button class="custom-button custom-color">Next</button>
 </div>

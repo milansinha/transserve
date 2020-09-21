@@ -1,0 +1,36 @@
+<div class="main-content">
+    <h1>Log Time</h1>
+    <!-- [formGroup]="employeeLogForm" (ngSubmit)="submit_review()" -->
+    <form [formGroup]="logForm" (ngSubmit)="submit()">
+        <label>
+            Date
+        </label>
+        <br>
+        <input class="inputField" type="text" placeholder="dd/mm/yyyy" name="date" formControlName="date">
+        <br>
+        <label>
+            Time Logged
+        </label>
+        <br>
+        <input class="inputField" type="number" placeholder="Time" name="time" formControlName="timelog">
+
+        <br>
+        <label>
+            Select Project
+        </label>
+        <br>
+        <select class="inputField" formControlName="project">
+            <option *ngFor="let item of projectId" [value]="item">{{item}}</option>
+        </select>
+        <br>
+        <label>
+            Select Employee
+        </label>
+        <br>
+        <select class="inputField" formControlName="employee">
+            <option *ngFor="let item of employeeId" [value]="item">{{item}}</option>
+        </select>
+
+        <button type="submit" class="custom-button" [disabled]="logForm.invalid">Submit</button>
+    </form>
+</div>

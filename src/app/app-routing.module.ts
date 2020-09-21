@@ -9,7 +9,8 @@ const routes: Routes = [
   // //   canActivate: [PublicGuard]
   // },
 
-  { path: '', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) }
+  { path: '', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+  { path: 'employee-log', loadChildren: () => import('./employeelog-form/employeelog-form.module').then(m => m.EmployeelogFormModule) }
 
 ];
 
