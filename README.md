@@ -2,6 +2,40 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
+## Front-End --> Angular 10.0.5
+
+## Back-End --> Node.js
+
+## Database --> Firebase (Cloud Firestore)
+
+## Hosting --> Firebase Hosting
+
+## api URL --> https://us-central1-transerve-ffe5f.cloudfunctions.net/
+
+#### create employeeLog
+
+`POST /employeeLog`
+```bash
+{
+    "date": "22/09/2020",
+    "project": 1,
+    "employee": 1,
+    "timelog": 23
+}
+```
+
+#### get project
+
+`GET /project`
+
+#### get employee
+
+`GET /employee`
+
+#### get getEmployeelog
+
+`GET /getEmployeelog`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
